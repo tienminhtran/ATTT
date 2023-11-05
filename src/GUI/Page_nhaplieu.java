@@ -11,7 +11,8 @@ import string_Encrypt_Decrypt.StringEncryptFunction;
  * @author Admin
  */
 public class Page_nhaplieu extends javax.swing.JFrame {
-
+    private String encryptedMsg = null;
+    private String decryptedMsg = null;
     /**
      * Creates new form Page_nhaplieu
      */
@@ -22,11 +23,18 @@ public class Page_nhaplieu extends javax.swing.JFrame {
     }
 
     public void maHoa() {
-        String encryptedMsg = StringEncryptFunction.EncryptString(StringEncryptFunction.plainTextToHexString(txt_PlainText.getText()),
+         encryptedMsg = StringEncryptFunction.EncryptString(StringEncryptFunction.plainTextToHexString(txt_PlainText.getText()),
                 StringEncryptFunction.plainTextToHexString(txt_KeyText.getText()));
-        String decryptedMsg = StringEncryptFunction.DecryptString(encryptedMsg,
-                StringEncryptFunction.plainTextToHexString( txt_KeyText.getText()));
+         
         txt_EncryptedMess.setText(encryptedMsg);
+        
+        txt_PlainText.setText("");
+        
+    }
+    
+    public void giaiMa() {
+        decryptedMsg = StringEncryptFunction.DecryptString(txt_EncryptedMess.getText(),
+                StringEncryptFunction.plainTextToHexString( txt_KeyText.getText()));
         txt_DercyptedMess.setText(StringEncryptFunction.hexToString(decryptedMsg));
     }
     /**
@@ -49,6 +57,7 @@ public class Page_nhaplieu extends javax.swing.JFrame {
         btn_MaHoa = new javax.swing.JButton();
         btn_giaiMa = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,6 +92,11 @@ public class Page_nhaplieu extends javax.swing.JFrame {
 
         btn_MaHoa.setBackground(new java.awt.Color(255, 204, 204));
         btn_MaHoa.setText("Giải mã");
+        btn_MaHoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MaHoaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_MaHoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 120, 40));
 
         btn_giaiMa.setBackground(new java.awt.Color(102, 255, 102));
@@ -94,16 +108,17 @@ public class Page_nhaplieu extends javax.swing.JFrame {
         });
         getContentPane().add(btn_giaiMa, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 120, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setBackground(new java.awt.Color(102, 255, 51));
+        jButton1.setText("Reset");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 40, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 330));
 
@@ -121,6 +136,17 @@ public class Page_nhaplieu extends javax.swing.JFrame {
     private void btn_giaiMaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_giaiMaActionPerformed
         maHoa();
     }//GEN-LAST:event_btn_giaiMaActionPerformed
+
+    private void btn_MaHoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MaHoaActionPerformed
+        giaiMa();
+    }//GEN-LAST:event_btn_MaHoaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        txt_DercyptedMess.setText("");
+        txt_EncryptedMess.setText("");
+        txt_PlainText.setText("");
+        txt_KeyText.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +188,7 @@ public class Page_nhaplieu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_MaHoa;
     private javax.swing.JButton btn_giaiMa;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
