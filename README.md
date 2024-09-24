@@ -2,19 +2,19 @@
 
 ## Overview
 
-This project implements RSA and AES encryption algorithms in Java, showcasing secure data encryption and decryption techniques.
+This project implements RSA and AES encryption algorithms in Java, demonstrating secure data encryption and decryption techniques.
 
 ## Features
 
 - RSA encryption and decryption
 - AES encryption and decryption
-- Command-line interface for user input
+- Command-line interface for user interaction
 
 ## Prerequisites
 
 - **JDK**: Java Development Kit (version 8 or higher)
 - **NetBeans**: Integrated Development Environment (IDE) for Java
-- **Eclipse**: Another IDE option for Java (optional)
+- **Eclipse**: Optional IDE for Java development
 
 ## Installation Instructions
 
@@ -35,6 +35,25 @@ This project implements RSA and AES encryption algorithms in Java, showcasing se
 
 ## Running the Project
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/rsa-aes-project.git
+### Open the Project
+
+- Launch NetBeans or Eclipse.
+- Import the cloned project.
+
+### Compile and Run
+
+1. Locate the main class (e.g., `Main.java`).
+2. Compile and run the project to see encryption and decryption in action.
+
+## Usage
+
+- Input data for encryption and view the encrypted output.
+- Input encrypted data to decrypt and retrieve the original message.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
